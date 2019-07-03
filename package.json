@@ -1,0 +1,28 @@
+{
+  "name": "conllu.js",
+  "version": "0.0.1",
+  "description": "packaging conllu.js for npm ",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config build/webpack.base.conf.js --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "conllu.js",
+    "conllu"
+  ],
+  "author": "toaonly <toaonly42@gmail.com> (https://www.toaonly.com/v2)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5"
+  },
+  "types": "conllu.d.ts",
+  "files": [
+    ""
+  ],
+  "dependencies": {}
+}
