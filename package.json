@@ -1,6 +1,6 @@
 {
   "name": "conllu-brat",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "conllu.js with brat",
   "main": "index.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "conllu.d.ts",
     "lib/*.js",
     "src/*.js",
+    "static",
     "conllu.js",
     "brat.js",
     "style-vis.css",
