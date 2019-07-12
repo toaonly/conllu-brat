@@ -10,7 +10,7 @@ Author: Sampo Pyysalo
 License: MIT (http://opensource.org/licenses/MIT)
 */
 
-var ConllU = (function() {
+const ConllU = (function() {
 
     /*
      * ConllU.Document: represents CoNLL-U document
@@ -210,7 +210,7 @@ var ConllU = (function() {
                 }
             }
             sentence.setBaseOffset(textOffset !== 0 ? textOffset + 1 : 0);
-            bratData = sentence.toBrat(includeEmpty);
+            var bratData = sentence.toBrat(includeEmpty);
             
             // merge
             if (mergedBratData['text'].length !== 0) {
@@ -424,7 +424,7 @@ var ConllU = (function() {
         for (var i=0; i<this.comments.length; i++) {
             var comment = this.comments[i];
 
-            m = comment.match(/^(\#\s*visual-style\s+)(.*)/);
+            var m = comment.match(/^(\#\s*visual-style\s+)(.*)/);
             if (!m) {
                 continue;
             }
@@ -526,7 +526,7 @@ var ConllU = (function() {
         for (var i=0; i<this.comments.length; i++) {
             var comment = this.comments[i];
 
-            m = comment.match(/^(\#\s*sentence-label\b)(.*)/);
+            var m = comment.match(/^(\#\s*sentence-label\b)(.*)/);
             if (!m) {
                 continue;
             }
@@ -873,7 +873,7 @@ var ConllU = (function() {
                 return true;
             }
         } else if (id.match(/^(\d+)-(\d+)$/)) {
-            m = id.match(/^(\d+)-(\d+)$/);
+            var m = id.match(/^(\d+)-(\d+)$/);
             if (!m) {
                 console.log('internal error');
                 return false;
@@ -887,7 +887,7 @@ var ConllU = (function() {
                 return true;
             }
         } else if (id.match(/^(\d+)\.(\d+)$/)) {
-            m = id.match(/^(\d+)\.(\d+)$/);
+            var m = id.match(/^(\d+)\.(\d+)$/);
             if (!m) {
                 console.log('internal error');
                 return false;
@@ -1045,7 +1045,7 @@ var ConllU = (function() {
         // TODO: don't short-circuit on first error
         for (var i=0; i<deparr.length; i++) {
             var dep = deparr[i];
-            m = dep.match(/^(\d+(?:\.\d+)?):(\S+)$/);
+            var m = dep.match(/^(\d+(?:\.\d+)?):(\S+)$/);
             if (!m) {
                 // TODO more descriptive issue
                 issues.push('invalid DEPS: "'+deps+'"');
@@ -1115,7 +1115,7 @@ var ConllU = (function() {
             var deparr = this.deps.split('|');
             for (var i=0; i<deparr.length; i++) {
                 var dep = deparr[i];
-                m = dep.match(dependencyRegex);
+                var m = dep.match(dependencyRegex);
                 if (m) {
                     elemDeps.push([this.id, m[1], m[2]]);
                 } else {
@@ -1355,7 +1355,7 @@ var ConllU = (function() {
         var prefix = '\u02D1',
             suffix = '\u02D1';
         if (isRtl(s)) {
-            s = prefix + s + suffix;
+            var s = prefix + s + suffix;
         }
         return s;
     };
@@ -1384,11 +1384,15 @@ var ConllU = (function() {
     var dependencyRegex = /^(\d+(?:\.\d+)?):(.*)$/;
 
     return {
-	Document: Document,
-	Sentence: Sentence,
+        Document: Document,
+	    Sentence: Sentence,
         Element: Element,
     };
 
 })();
 
-export default ConllU
+export default {
+    Document: ConllU.Document,
+    Sentence: ConllU.Sentence,
+    Element: ConllU.Element
+}
