@@ -1,6 +1,6 @@
 {
   "name": "conllu-brat",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "conllu.js with brat",
   "main": "index.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "conllu.d.ts",
     "conllu.js",
     "brat.js",
+    "style-vis.css",
     "index.js"
   ],
   "dependencies": {
