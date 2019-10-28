@@ -1517,6 +1517,8 @@ Util.profileStart('chunks');
             var yy = y + sizes.fragments.y;
             var hh = sizes.fragments.height;
             var ww = fragment.width;
+            
+            ww = ww < 38 ? 38 : ww;
             var xx = x - ww / 2;
 
             // text margin fine-tuning
