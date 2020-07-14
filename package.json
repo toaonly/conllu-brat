@@ -1,6 +1,6 @@
 {
   "name": "conllu-brat",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "conllu.js with brat",
   "main": "index.js",
   "scripts": {

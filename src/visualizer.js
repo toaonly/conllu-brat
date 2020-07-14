@@ -2789,7 +2789,7 @@ Util.profileStart('before render');
       var onMouseOver = function(evt) {
         var target = $(evt.target);
         var id;
-        if (id = target.attr('data-span-id')) {
+        if (id = target.data('span-id')) {
           commentId = id;
           var span = data.spans[id];
           dispatcher.post('displaySpanComment', [
@@ -2838,16 +2838,16 @@ Util.profileStart('before render');
                 addClass('highlight');
           }
           forceRedraw();
-        } else if (!that.arcDragOrigin && (id = target.attr('data-arc-role'))) {
-          var originSpanId = target.attr('data-arc-origin');
-          var targetSpanId = target.attr('data-arc-target');
-          var role = target.attr('data-arc-role');
+        } else if (!that.arcDragOrigin && (id = target.data('arc-role'))) {
+          var originSpanId = target.data('arc-origin');
+          var targetSpanId = target.data('arc-target');
+          var role = target.data('arc-role');
           var symmetric = (relationTypesHash &&
                            relationTypesHash[role] &&
                            relationTypesHash[role].properties &&
                            relationTypesHash[role].properties.symmetric);
           // NOTE: no commentText, commentType for now
-          var arcEventDescId = target.attr('data-arc-ed');
+          var arcEventDescId = target.data('arc-ed');
           var commentText = '';
           var commentType = '';
           var arcId;
@@ -2882,7 +2882,7 @@ Util.profileStart('before render');
               find('rect[data-span-id="' + originSpanId + '"], rect[data-span-id="' + targetSpanId + '"]').
               parent().
               addClass('highlight');
-        } else if (id = target.attr('data-sent')) {
+        } else if (id = target.data('sent')) {
           var comment = data.sentComment[id];
           if (comment) {
             dispatcher.post('displaySentComment', [evt, target, comment.text, comment.type]);
